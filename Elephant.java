@@ -7,6 +7,8 @@ public class Elephant extends Actor
      */
     public void act()
     {
+        GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+        
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
