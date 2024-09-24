@@ -1,14 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
-    /**
-     * Act - do whatever the Elephant wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootImage[] idle = new GreenfootImage[8];
+    
+    public Elephant()
+    {
+        for(int i = 0; i < idle.length; i++)
+        {
+            idle[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+        }
+    }
+    int imageIndex = 0;
+    public void animate()
+    {
+        setImage(idle[imageIndex]);
+        imageIndex = (imageIndex + 1) % idle.length;
+    }
     public void act()
     {
-        GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
-        
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
@@ -18,5 +28,7 @@ public class Elephant extends Actor
         {
             move(2);
         }
+        
+        animate();
     }
 }
