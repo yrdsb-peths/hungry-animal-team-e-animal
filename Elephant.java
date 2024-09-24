@@ -18,5 +18,6 @@ public class Elephant extends Actor
         {
             move(2);
         }
+        
     }
 }
