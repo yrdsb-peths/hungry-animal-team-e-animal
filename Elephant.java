@@ -6,6 +6,7 @@ public class Elephant extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[8];
     SimpleTimer timer = new SimpleTimer();
     String facing = "right";
+    
     public Elephant()
     {
         for(int i = 0; i < idleRight.length; i++)
@@ -67,10 +68,11 @@ public class Elephant extends Actor
         if(actor != null) {
             Food food = (Food) actor;
             MyWorld world = (MyWorld) getWorld();
-
+            elephantSound.play();
             world.increaseScore(food.value);
             getWorld().removeObject(food);
             world.spawnFood();
         }
+
     }
 }
