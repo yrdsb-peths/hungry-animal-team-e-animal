@@ -1,23 +1,45 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
-
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
-    GreenfootImage[] idle = new GreenfootImage[8];
-
+    GreenfootImage[] idleRight = new GreenfootImage[8];
+    GreenfootImage[] idleLeft = new GreenfootImage[8];
+    SimpleTimer timer = new SimpleTimer();
+    String facing = "right";
     public Elephant()
     {
-        for(int i = 0; i < idle.length; i++)
+        for(int i = 0; i < idleRight.length; i++)
         {
-            idle[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            idleRight[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
         }
+        for(int i = 0; i < idleLeft.length; i++)
+        {
+            idleLeft[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
+            idleLeft[i].mirrorHorizontally();
+        }
+            timer.mark();
+            setImage(idleRight[0]);
     }
 
     int imageIndex = 0;
     public void animate()
     {
-        setImage(idle[imageIndex]);
-        imageIndex = (imageIndex + 1) % idle.length;
+        if(timer.millisElapsed() < 100)
+        {
+            return;
+        }
+        timer.mark();
+        if(facing.equals("right"))
+        {
+            setImage(idleRight[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleRight.length;
+        }
+        else
+        {
+            setImage(idleLeft[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleLeft.length;
+        }
+        
     }
 
     public void act()
@@ -27,10 +49,12 @@ public class Elephant extends Actor
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
+            facing = "left";
         } 
         else if(Greenfoot.isKeyDown("right"))
         {
             move(2);
+            facing = "right";
         }
 
         animate();
