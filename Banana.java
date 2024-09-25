@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Banana extends Food
 {
     public Banana() {
-        super(10);
+        super(5);
     }
     
     /**
@@ -18,7 +18,7 @@ public class Banana extends Food
      */
     public void act()
     {
-        setLocation(getX(), getY() + 2);
+        move();
         
         // Remove apple if reached end
         MyWorld world = (MyWorld) getWorld();
@@ -26,5 +26,10 @@ public class Banana extends Food
             world.gameOver();
             world.removeObject(this);
         }
+    }
+    
+    public void move()
+    {
+       setLocation(getX(), getY() + this.getValue()); 
     }
 }
