@@ -5,9 +5,10 @@ public class Elephant extends Actor
      * Act - do whatever the Elephant wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    
     public void act()
     {
-        GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
         
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
@@ -25,8 +26,9 @@ public class Elephant extends Actor
         if(isTouching(Apple.class))
         {
             removeTouching(Apple.class);
-            MyWorld world = (MyWorld) getWorld();
+            MyWorld world = (MyWorld)getWorld();
             world.createApple();
+            elephantSound.play();
         }
     }
 }
