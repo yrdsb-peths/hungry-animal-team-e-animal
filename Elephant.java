@@ -48,12 +48,12 @@ public class Elephant extends Actor
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-2);
+            move(-5);
             facing = "left";
         } 
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(2);
+            move(5);
             facing = "right";
         }
 
@@ -63,20 +63,12 @@ public class Elephant extends Actor
 
     public void checkFoodCollision()
     {
-        if(isTouching(Apple.class))
-        {
-            removeTouching(Apple.class);
-            MyWorld world = (MyWorld)getWorld();
-            world.createApple();
-            world.increaseScore();
-            elephantSound.play();
-        }
         Actor actor = getOneIntersectingObject(Food.class); // Might be null
         if(actor != null) {
             Food food = (Food) actor;
             MyWorld world = (MyWorld) getWorld();
 
-            //world.increaseScore(food.value);
+            world.increaseScore(food.value);
             getWorld().removeObject(food);
             world.spawnFood();
         }
