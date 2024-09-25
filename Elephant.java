@@ -70,7 +70,7 @@ public class Elephant extends Actor
             world.createApple();
             world.increaseScore();
             elephantSound.play();
-
+        }
         Actor actor = getOneIntersectingObject(Food.class); // Might be null
         if(actor != null) {
             Food food = (Food) actor;
