@@ -27,7 +27,7 @@ public class MyWorld extends World
         scoreLabel = new Label(0,80);
         addObject(scoreLabel,50,50);
         
-        createApple();
+        spawnFood();
     }
     
     /**
@@ -36,6 +36,18 @@ public class MyWorld extends World
     public void createApple() {
         Apple apple = new Apple();
         addObject(apple, Greenfoot.getRandomNumber(600), 0);      
+    }
+    
+    public void spawnFood() {
+        int rand = Greenfoot.getRandomNumber(2);
+        Food food;
+        if(rand == 0) {
+            food = new Apple();
+        } else {
+            food = new Banana();
+        }
+        int x = Greenfoot.getRandomNumber(600);
+        addObject(food, x, 0);
     }
     
     /**
