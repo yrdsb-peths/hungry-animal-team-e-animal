@@ -1,13 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
-
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
     SimpleTimer timer = new SimpleTimer();
     String facing = "right";
-    
     public Elephant()
     {
         for(int i = 0; i < idleRight.length; i++)
@@ -22,7 +20,7 @@ public class Elephant extends Actor
             timer.mark();
             setImage(idleRight[0]);
     }
-    
+
     int imageIndex = 0;
     public void animate()
     {
@@ -43,10 +41,10 @@ public class Elephant extends Actor
         }
         
     }
-    
+
     public void act()
     {
-        
+
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
@@ -58,19 +56,21 @@ public class Elephant extends Actor
             move(2);
             facing = "right";
         }
-        
+
         animate();
-        eat();
+        checkFoodCollision();
     }
-    
-    public void eat()
+
+    public void checkFoodCollision()
     {
-        if(isTouching(Apple.class))
-        {
-            removeTouching(Apple.class);
-            MyWorld world = (MyWorld)getWorld();
-            world.createApple();
-            elephantSound.play();
+        Actor actor = getOneIntersectingObject(Food.class); // Might be null
+        if(actor != null) {
+            Food food = (Food) actor;
+            MyWorld world = (MyWorld) getWorld();
+
+            //world.increaseScore(food.value);
+            getWorld().removeObject(food);
+            world.spawnFood();
         }
     }
 }
