@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
+
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
@@ -21,6 +22,7 @@ public class Elephant extends Actor
             timer.mark();
             setImage(idleRight[0]);
     }
+    
     int imageIndex = 0;
     public void animate()
     {
@@ -40,10 +42,11 @@ public class Elephant extends Actor
             imageIndex = (imageIndex + 1) % idleLeft.length;
         }
         
-        }
+    }
     
     public void act()
     {
+        
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
@@ -57,5 +60,17 @@ public class Elephant extends Actor
         }
         
         animate();
+        eat();
+    }
+    
+    public void eat()
+    {
+        if(isTouching(Apple.class))
+        {
+            removeTouching(Apple.class);
+            MyWorld world = (MyWorld)getWorld();
+            world.createApple();
+            elephantSound.play();
+        }
     }
 }
