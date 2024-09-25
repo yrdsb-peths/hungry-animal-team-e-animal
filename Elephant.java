@@ -63,6 +63,14 @@ public class Elephant extends Actor
 
     public void checkFoodCollision()
     {
+        if(isTouching(Apple.class))
+        {
+            removeTouching(Apple.class);
+            MyWorld world = (MyWorld)getWorld();
+            world.createApple();
+            world.increaseScore();
+            elephantSound.play();
+
         Actor actor = getOneIntersectingObject(Food.class); // Might be null
         if(actor != null) {
             Food food = (Food) actor;
