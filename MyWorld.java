@@ -61,9 +61,9 @@ public class MyWorld extends World
     /**
      * Increase Score
      */
-    public void increaseScore()
+    public void increaseScore(int n)
     {
-        score++;
+        score += n;
         scoreLabel.setValue(score);
     }
     
