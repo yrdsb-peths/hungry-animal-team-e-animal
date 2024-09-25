@@ -12,4 +12,11 @@ public abstract class Food extends Actor {
     public Food(int value) {
         this.value = value;
     }
+    
+    public void move(){}
+    
+    public int getValue()
+    {
+        return value; 
+    }
 }
