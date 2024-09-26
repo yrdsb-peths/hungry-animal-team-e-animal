@@ -18,8 +18,8 @@ public class Elephant extends Actor
             idleLeft[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
             idleLeft[i].mirrorHorizontally();
         }
-            timer.mark();
-            setImage(idleRight[0]);
+        timer.mark();
+        setImage(idleRight[0]);
     }
 
     int imageIndex = 0;

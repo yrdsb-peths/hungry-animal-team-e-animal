@@ -10,6 +10,9 @@ public class Apple extends Food
 {
     public Apple() {
         super(2);
+        GreenfootImage apple = new GreenfootImage("images/apple.png");
+        apple.scale(40, 40);
+        setImage(apple);
     }
 
     /**
