@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-public class Elephant extends Actor
+public class Elephant extends Actor implements Movable
 {
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
@@ -23,7 +23,7 @@ public class Elephant extends Actor
     }
 
     int imageIndex = 0;
-    public void animate()
+    public void move()
     {
         if(timer.millisElapsed() < 100)
         {
@@ -49,16 +49,18 @@ public class Elephant extends Actor
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-5);
+
+            move(-4);
             facing = "left";
         } 
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(5);
+
+            move(4);
             facing = "right";
         }
 
-        animate();
+        move();
         checkFoodCollision();
     }
 
