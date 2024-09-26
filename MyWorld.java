@@ -30,14 +30,6 @@ public class MyWorld extends World
         spawnFood();
     }
     
-    /**
-     * Spawn apple at random location
-     */
-    public void createApple() {
-        Apple apple = new Apple();
-        addObject(apple, Greenfoot.getRandomNumber(600), 0);      
-    }
-    
     public void spawnFood() {
         int rand = Greenfoot.getRandomNumber(2);
         Food food;
