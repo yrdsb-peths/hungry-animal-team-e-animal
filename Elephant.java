@@ -43,6 +43,14 @@ public class Elephant extends Actor implements Movable
         
     }
 
+    public void teleport()
+    {
+        if(getX() == 0)
+        {
+            setLocation();
+        }
+    }
+    
     public void act()
     {
 
