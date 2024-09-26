@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Banana extends Food
+public class Banana extends Food implements Movable
 {
     public Banana() {
         super(5);
