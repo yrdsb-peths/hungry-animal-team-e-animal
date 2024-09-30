@@ -51,6 +51,8 @@ public class Elephant extends Actor implements Movable
 
     public void teleport()
     {
+        // Elephant teleports to the other side of the world
+        // If elephant is at the end of the world
         if(getX() == 0)
         {
             setLocation(600, getY());

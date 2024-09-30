@@ -27,7 +27,7 @@ public class Banana extends Food implements Movable
             world.removeObject(this);
         }
     }
-    
+    // Banana moves down at speed of its value
     public void move()
     {
        setLocation(getX(), getY() + this.getValue()); 
