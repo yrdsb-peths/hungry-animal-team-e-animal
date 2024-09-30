@@ -75,6 +75,7 @@ public class Elephant extends Actor implements Movable
         }
 
         checkFoodCollision();
+        move();
         teleport();
     }
 
