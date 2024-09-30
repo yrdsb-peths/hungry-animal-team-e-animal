@@ -20,7 +20,7 @@ public class Banana extends Food implements Movable
     {
         move();
         
-        // Remove apple if reached end
+        // Remove banana if reached end
         MyWorld world = (MyWorld) getWorld();
         if (getY() >= world.getHeight()) {
             world.gameOver();
