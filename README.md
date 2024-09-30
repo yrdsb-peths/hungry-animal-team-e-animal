@@ -33,6 +33,6 @@ flowchart TD
 In the `Food` class, we define an abstract method `move()`, which is overridden by its subclasses `Apple` and `Banana`. This allows each type of food to have a unique movement speed.
 
 ### Interfaces
-The interface `Moveable` says the implemented classes (`Elephant` and `Food`) must define certain behaviour, in this case, a `move()` method. This is helpful as we can be certain that any class that implements `Moveable` can be moved in the same way.
+The interface `Moveable` says the implemented classes (`Elephant`, `Apple`, and `Banana`) must define certain behaviour, in this case, a `move()` method. This is helpful as we can be certain that any class that implements `Moveable` can be moved in the same way.
 
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=16138150&assignment_repo_type=AssignmentRepo)
