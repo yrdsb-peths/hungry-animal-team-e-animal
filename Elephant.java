@@ -43,6 +43,17 @@ public class Elephant extends Actor implements Movable
         
     }
 
+    public void teleport()
+    {
+        if(getX() == 0)
+        {
+            setLocation(600, getY());
+        } else
+        if (getX() == 600) {
+            setLocation(0, getY());
+        }
+    }
+    
     public void act()
     {
 
@@ -60,6 +71,7 @@ public class Elephant extends Actor implements Movable
 
         move();
         checkFoodCollision();
+        teleport();
     }
 
     public void checkFoodCollision()
