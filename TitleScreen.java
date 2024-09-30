@@ -19,6 +19,7 @@ public class TitleScreen extends World
         super(600, 400, 1); 
         prepare();
     }
+    
     public void act()
     {
         // Start the game if user presses the space bar
@@ -35,6 +36,7 @@ public class TitleScreen extends World
      */
     private void prepare()
     {
+        // Create titles
         Label titleLabel = new Label("Hungry Animal", 60);
         addObject(titleLabel,300,104);
         
